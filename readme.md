@@ -156,9 +156,16 @@ https://k-sasaking.net/programing/heroku-postgres-install/
 DB_HOST=<Host>
 DB_DATABASE=<Database>
 DB_USERNAME=<User>
-DB_PASSWORD=<Password>
 DB_PORT=<Port>
+DB_PASSWORD=<Password>
 ```
+
+### Heroku の環境変数を設定
+ターミナルで下記を実行
+```zsh 
+heroku config:set DB_USERNAME=<User> DB_PASSWORD=<Password> DB_HOST=<Host> DB_PORT=<Port> DB_NAME=<Database> --app <your-app-name>
+```
+
 ### HerokuのPostgreSQLに直接アクセス
 
 ・Heroku PostgresのAdd-onページへ行くので、Settingタブを開き、View Credentialsボタンを押す。
@@ -201,13 +208,5 @@ heroku pg:psql --app <herokuアプリケーション名>
 git add .
 git commit -m "github"
 git push origin main
-```
-でpushして、下記で確認。
-```zsh
 heroku open
 ```
-
-git add .
-git commit -m "connect"
-git push origin main
-heroku open
